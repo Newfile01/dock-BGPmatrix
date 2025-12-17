@@ -15,7 +15,7 @@ RUN conda install -c conda-forge cupy-core
 
 # 📦 Installation de matrix-bgpsim
 COPY matrix-bgpsim/ /workspace/matrix-bgpsim/
-WORKDIR /workspace/matrix-bgpsim/matrix-bgpsim
+WORKDIR /workspace/matrix-bgpsim/matrix_bgpsim
 # RUN pip install matrix-bgpsim[torch]
 RUN pip install matrix-bgpsim[torch,cupy]
 
@@ -48,7 +48,7 @@ RUN tree -L 2 / > fs_tree.log 2>&1
 
 
 FROM base AS prod
-WORKDIR /workspace/matrix-bgpsim/matrix-bgpsim
+WORKDIR /workspace/matrix-bgpsim/benchmark
 
 # 🚀 Commande par défaut
 CMD [ "/bin/bash" ]

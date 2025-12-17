@@ -1,0 +1,51 @@
+name: mx-bgpsim
+
+services:
+  matrix-bgpsim:
+    build:
+      context: .
+      dockerfile: dock-nct-py/Dockerfile
+    image: dock-nct-py:latest
+    container_name: bgpsim
+    #####
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    #
+    # OU
+    #
+    # runtime: nvidia
+    # environment:
+    #   - NVIDIA_VISIBLE_DEVICES=all
+    #
+    # OU
+    #
+    gpus: all
+    ####
+    volumes:
+      - ./matrix-bgpsim:/workspace/matrix-bgpsim
+    working_dir: /workspace/matrix-bgpsim/matrix-bgpsim
+    command: tail -f /dev/null # garde le conteneur en vie
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: jupy-notebook/Dockerfile
+    image: jupy-bgp-canvas:latest
+    container_name: jupyter
+    ports:
+      - "8889:8888"
+    volumes:
+      - ./matrix-bgpsim:/home/jovyan/work
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    command: >
+      start-notebook.py
+      --NotebookApp.token=my-token
+      --NotebookApp.allow_origin='*'
+    depends_on:
+    - matrix-bgpsim
