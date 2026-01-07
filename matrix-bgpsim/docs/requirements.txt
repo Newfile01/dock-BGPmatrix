@@ -1,4 +1,0 @@
-furo
-sphinx_autodoc_typehints
-numpy
-lz4
