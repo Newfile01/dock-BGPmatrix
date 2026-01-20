@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir \
     matplotlib \
     pandas
 
-WORKDIR /home/jovyan/work/matrix-bgpsim/matrix_bgpsim
+WORKDIR /home/jovyan/work/matrix-bgpsim
 RUN pip install matrix-bgpsim[torch]
 
 

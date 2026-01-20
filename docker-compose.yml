@@ -28,7 +28,7 @@ services:
     ####
     volumes:
       - ./matrix-bgpsim:/workspace/matrix-bgpsim
-    working_dir: /workspace/matrix-bgpsim/matrix-bgpsim
+    working_dir: /workspace/matrix-bgpsim/benchmark
     command: tail -f /dev/null # garde le conteneur en vie
 
   jupyter:

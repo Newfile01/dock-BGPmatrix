@@ -15,7 +15,7 @@ RUN conda install -c conda-forge cupy-core
 
 # 📦 Installation de matrix-bgpsim
 COPY matrix-bgpsim/ /workspace/matrix-bgpsim/
-WORKDIR /workspace/matrix-bgpsim/matrix_bgpsim
+WORKDIR /workspace/matrix-bgpsim
 # RUN pip install matrix-bgpsim[torch]
 RUN pip install matrix-bgpsim[torch,cupy]
 
