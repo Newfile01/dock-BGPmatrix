@@ -13,7 +13,8 @@ DOCKER_ARGS=(
 
 mkdir -p "${OUT_DIR}"
 # Construit l'image jusqu'à la couche extract
-docker build -q --target extract -t extract_image .
+docker build -q -f dock-nct-py/Dockerfile --target extract -t extract_image .
+
 # Extraction via entrypoint cp
 docker run "${DOCKER_ARGS[@]}"
 

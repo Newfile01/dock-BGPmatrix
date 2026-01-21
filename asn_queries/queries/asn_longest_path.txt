@@ -1,5 +1,0 @@
-🔍 Chemin le plus long trouvé :
-   - AS source : 15808
-   - AS destination : 266022
-   - Longueur du chemin : 15 AS intermédiaires
-   - Chemin : 15808 -> 327727 -> 327814 -> 37613 -> 37645 -> 13335 -> 20473 -> 52025 -> 199524 -> 52925 -> 272713 -> 28189 -> 267521 -> 53043 -> 263433 -> 266022 -> 266022

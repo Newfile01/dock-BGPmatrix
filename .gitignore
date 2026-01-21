@@ -6,3 +6,4 @@ asn_queries/scripts/core*
 asn_queries/scripts/random*
 asn_queries/scripts/__pycache__
 asn_queries/.ipynb_checkpoints
+container_infos/

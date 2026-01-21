@@ -6,7 +6,7 @@ WORKDIR /workspace
 # 📦 Installe les dépendances système nécessaires
 RUN apt update -y && \
     apt upgrade -y && \
-    apt install -y tree nano && \
+    apt install -y tree nano wget bzip2 tar && \
     apt clean
 
 # 🤖 Installe CuPy
@@ -14,10 +14,11 @@ RUN apt update -y && \
 RUN conda install -c conda-forge cupy-core
 
 # 📦 Installation de matrix-bgpsim
-COPY matrix-bgpsim/ /workspace/matrix-bgpsim/
+ARG SOURCE_DIR=.
+COPY ${SOURCE_DIR}/matrix-bgpsim/ /workspace/matrix-bgpsim/
 WORKDIR /workspace/matrix-bgpsim
 # RUN pip install matrix-bgpsim[torch]
-RUN pip install matrix-bgpsim[torch,cupy]
+RUN pip install ".[torch,cupy]"
 
 
 FROM base AS extract
@@ -49,6 +50,8 @@ RUN tree -L 2 / > fs_tree.log 2>&1
 
 FROM base AS prod
 WORKDIR /workspace/matrix-bgpsim/benchmark
+RUN wget https://publicdata.caida.org/datasets/as-relationships/serial-2/20250101.as-rel2.txt.bz2 && \
+    bunzip2 20250101.as-rel2.txt.bz2
 
 # 🚀 Commande par défaut
 CMD [ "/bin/bash" ]
