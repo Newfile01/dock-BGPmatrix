@@ -30,6 +30,18 @@ Il est possible d'utiliser la distribution de votre choix, mais ici voici la con
 | `Ubuntu 24.04` ou plus | `git` | `docker` |
 | ----------- | ----------- | ----------- |
 
+💻 Mon système :
+```
+PC Portable ASUS  
+CPU : Intel Core i9-14900HX  
+RAM : 32 Go DDR5  
+GPU : Nvidia RTX 4080-Laptop  
+OS : Windows 11 + WSL 2 (distribution Ubuntu 24.04)  
+```  
+Pour la partie exploitation du GPU suivre le guide ici : [Nvidia container toolkit](http://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)  
+> [!CAUTION]
+> Sur PC portable, bien faire attention à être branché sur secteur car le GPU peut ne plus être détecté si ce n'est pas le cas (j'ai pu expérimenté le problème personnellement)
+
 ## Mise en place
 ### Clonage & construction des conteneurs
 
